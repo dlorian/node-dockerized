@@ -1,0 +1,20 @@
+version: "2"
+services:
+  app:
+    build: app
+    image: test-app
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - ./:/app
+  mongo:
+    build: mongo
+    image: test-mongo
+    ports:
+      - "27017:27017"
+  redis:
+    build: redis
+    image: test-redis
+    ports:
+      - "6379:6379"

@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Integration test with redis and mongo",
+  "main": "app.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "author": "dlorian",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.2.24",
+    "redis": "^2.6.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
