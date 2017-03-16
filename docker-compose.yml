@@ -6,15 +6,22 @@ services:
     depends_on:
       - mongo
       - redis
-    volumes:
-      - ./:/app
+    environment:
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
   mongo:
     build: mongo
     image: test-mongo
     ports:
-      - "27017:27017"
+      - "27017"
+    logging:
+      driver: none
   redis:
     build: redis
     image: test-redis
     ports:
-      - "6379:6379"
+      - "6379"
+    logging:
+      driver: none

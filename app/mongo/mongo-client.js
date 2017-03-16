@@ -1,5 +1,13 @@
+const util = require('util');
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017/test';
+
+let url;
+if(process.env.MONGO_HOST && process.env.MONGO_PORT) {
+    url = util.format('mongodb://%s:%d/test', process.env.MONGO_HOST, process.env.MONGO_PORT);
+}
+else {
+    url = 'mongodb://localhost:27017/test'
+}
 
 const executeOnDb = function(fn, done)  {
     MongoClient.connect(url, function(err, db) {
